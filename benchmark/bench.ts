@@ -1,19 +1,27 @@
 import { Bench } from 'tinybench'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
-import { plus100 } from '../index.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-function add(a: number) {
-  return a + 100
-}
+import { matchTemplate, crop, findImage } from '../index.js'
+
+const horsesJpg = path.join(__dirname, '../test/horses.jpg')
+const horsesPng = path.join(__dirname, '../target/image/horses.png')
+const horsesSectionPng = path.join(__dirname, '../target/image/horses_section.png')
+// const horsesOutPng = path.join(__dirname, '../target/image/horses_out.png')
 
 const b = new Bench()
 
-b.add('Native a + 100', () => {
-  plus100(10)
+crop(horsesJpg, 0, 0, 500, 400, horsesPng)
+crop(horsesJpg, 400, 370, 30, 30, horsesSectionPng)
+
+b.add('match', () => {
+  matchTemplate(horsesPng, horsesSectionPng)
 })
 
-b.add('JavaScript a + 100', () => {
-  add(10)
+b.add('find', () => {
+  findImage(horsesPng, horsesSectionPng)
 })
 
 await b.run()

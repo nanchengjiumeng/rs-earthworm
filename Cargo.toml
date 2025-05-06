@@ -1,7 +1,7 @@
 [package]
 authors = ["LongYinan <lynweklm@gmail.com>"]
 edition = "2021"
-name    = "napi-package-template"
+name    = "napi-rs-earthworm"
 version = "0.1.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -10,6 +10,8 @@ version = "0.1.0"
 crate-type = ["cdylib"]
 
 [dependencies]
+image = "0.25.6"
+imageproc = "0.25.0"
 napi        = "2"
 napi-derive = "2"
 
