@@ -310,9 +310,11 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const { Point, crop, findImage, matchTemplate } = nativeBinding
+const { Point, crop, setAroundZero, findImage, matchTemplate, filterBinaryzation } = nativeBinding
 
 module.exports.Point = Point
 module.exports.crop = crop
+module.exports.setAroundZero = setAroundZero
 module.exports.findImage = findImage
 module.exports.matchTemplate = matchTemplate
+module.exports.filterBinaryzation = filterBinaryzation
