@@ -40,7 +40,7 @@ pub fn filter_binaryzation(image: String, out: String, threshold: String) {
     &threshold,
   );
   // 保存图像
-  let mut img = image::ImageBuffer::new(cols, rows);
+  let mut img: image::ImageBuffer<image::Rgb<u8>, Vec<u8>> = image::ImageBuffer::new(cols, rows);
   for i in 0..rows {
     for j in 0..cols {
       let pixel = data_filtered.at(j as i32, i as i32);

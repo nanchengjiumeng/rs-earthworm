@@ -40,7 +40,7 @@ pub fn filter_binaryzation(data: &Vec<u8>, rows: i32, cols: i32, threshold: &str
   while i < data_len {
     let pixel_color = data[i] / 3 + data[i + 1] / 3 + data[i + 2] / 3;
     if pixel_color > colors[0] && pixel_color < colors[1] {
-      src_data[idx] = 255;
+      src_data[idx] = 0;
     }
     idx += 1;
     i += 3;
